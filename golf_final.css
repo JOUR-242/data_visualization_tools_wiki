@@ -1,0 +1,103 @@
+<style>
+	.state{
+		fill: none;
+		stroke: #a9a9a9;
+		stroke-width: 1;
+	}
+	.state:hover{
+		fill-opacity:0.5;
+	}
+	#tooltip {   
+		position: absolute;           
+		text-align: center;
+		padding: 20px;             
+		margin: 10px;
+		font: 12px sans-serif;        
+		background: lightsteelblue;   
+		border: 1px;      
+		border-radius: 2px;           
+		pointer-events: none;         
+	}
+	#tooltip h4{
+		margin:0;
+		font-size:14px;
+	}
+	#tooltip{
+		background:rgba(0,0,0,0.9);
+		border:1.5px solid grey;
+		border-radius:5px;
+		font-size:12px;
+		width:auto;
+		padding:4px;
+		color:white;
+		opacity:0;
+	}
+	#tooltip table{
+		table-layout:fixed;
+	}
+	#tooltip tr td{
+		padding:0;
+		margin:0;
+	}
+	#tooltip tr td:nth-child(1){
+		width:50px;
+	}
+	#tooltip tr td:nth-child(2){
+		text-align:center;
+	}
+  .my-legend .title {
+    text-align: center;
+    margin-bottom: 5px;
+    font-weight: bold;
+    font-size: 90%;
+    }
+  .my-legend .scale ul {
+    margin: 0;
+    margin-bottom: 5px;
+    padding: 0;
+    float: center;
+    list-style: none;
+    }
+  .my-legend .scale ul li {
+    font-size: 80%;
+    list-style: none;
+    margin-left: 0;
+    line-height: 18px;
+    margin-bottom: 2px;
+    }
+  .my-legend ul.labels li span {
+    display: inline-block;
+    text-align: center; 
+    height: 16px;
+    width: 30px;
+    border: 1px solid #999;
+    margin-right: auto;
+    margin-left: auto;
+    }
+  h1 {
+  	text-align: center;
+  	color: black;
+  	font-family: Arial;
+    }
+   h2 {
+   	text-align: center;
+   	color: black;
+   	font-family: Arial;
+   }
+   h3 {
+   	text-align: center;
+   	color: black;
+   	font-family: Arial;
+   }
+   p {
+   	font-size: 14px;
+   }
+   ul {
+   	text-align: center;
+   	list-style-position: inside;
+   	}
+   ol {
+   	text-align: center;
+   	list-style-position: inside;
+   }
+</style>
