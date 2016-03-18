@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.css" />
+  	</head>
+  <body>
+   <h1>Leaflet Example</h1>
+   <div id="map">
+    <style>
+      #map {
+        width: 800px;
+        height: 350px;
+        padding: 100px;
+      }
+    </style>
+     
+     <script type="text/javascript" src="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>
+  	 <script type="text/javascript" src="TileLayer.GeoJSON3.js"></script>
+<script type="text/javascript">
+var map = L.map('map').setView([38.0, 21.0], 5); 
+</script>
+<script>
+L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=' + 'pk.eyJ1IjoiYWxraWVzZWwiLCJhIjoiY2lsYjc3M3drMGpnNHR1bHhvNHF6NDZpaSJ9.cGysZzI1AAVzy9t2WZcaiQ', {
+    id: 'mapbox.light',
+    attribution: 'mapbox',
+}).addTo(map);
+L.geoJson(countries).addTo(map);    
+L.geoJson(countries, {style: style}).addTo(map);
+geojson = L.geoJson(countries, {
+    style: style,
+    onEachFeature: onEachFeature
+}).addTo(map);
+</script>
+  </body>
+</html>
+
