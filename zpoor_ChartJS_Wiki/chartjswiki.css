@@ -1,0 +1,80 @@
+body {
+	background: radial-gradient(#1874CD, #104E8B);
+	font-family: Raleway, Helvetica, sans-serif;
+}
+
+.content {
+	width: 800px;
+	background-color: #DCDCDC;
+	margin-left: auto;
+	margin-right: auto;
+	padding: 50px;
+}
+
+h1 {
+	text-align: center;
+	color: #104E8B;
+}
+
+h2 {
+	text-align: center;
+	color: #1874CD;
+}
+
+h3 {
+	color: #104E8B;
+}
+
+a:link {
+	color: #104E8B;
+	text-decoration: none;
+}
+a:visited {
+	color: #1874CD;
+	text-decoration: none;
+}
+a:hover, a:active, a:focus {
+	text-decoration: underline;
+}
+
+table {
+	margin-left: auto;
+	margin-right: auto;
+	background-color: white;
+	border: 25px solid white;
+}
+hr { 
+    display: block;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    margin-left: auto;
+    margin-right: auto;
+    border-style: inset;
+    border-width: 1p;
+}
+
+
+
+/*chart-specific code*/
+.chart {
+	width: 800px;
+	background-color: #DCDCDC;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.container {
+	width: 800px;
+	background-color: #DCDCDC;
+	margin-left: auto;
+	margin-right: auto;
+	padding-top: 50px;
+	padding-right: 50px;
+	padding-left: 50px;
+	padding-bottom: 50px;
+}
+
+#charttitle {
+	text-align: left;
+	color: #104E8B;
+}

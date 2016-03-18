@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Chart.js Wiki</title>
+		<script src="http://zdpoor.iweb.bsu.edu/DataVisWiki/Chart.js"></script>
+		<link rel="stylesheet" type="css/text"  href="http://zdpoor.iweb.bsu.edu/DataVisWiki/chartjswiki.css">
+	</head>
+	<body>
+	<div class="content">
+		<h1>Chart.js ~ A Data Visualization Tool</h1>
+		<h2>Make simple and beautiful charts easily</h2>
+		<hr>
+		<h3 style="text-align:center"><a href="http://zdpoor.iweb.bsu.edu/DataVisWiki/ufosightings.html">Check it out, I made a thing! <br /><small><i>My Data Visualization</i></small></a></h3>
+		<h3>Wait, what is it?</h3>
+		<p>Chart.js is an open source JavaScript library that creates simple with charts with a modern, flat design. Designers and developers can quickly create six different types of core charts (bar, line, radar, pie, doughnut and polar area) with the basic script file.</p>
+		
+				<table>
+					<tr>
+						<th colspan="3">
+							<h3>Available Chart Types in Chart.js</h3>
+							<i><small>Click on the chart image to see a working interactive sample.</small></i>
+						</th>
+					</tr>
+					<tr>
+						<td><h4 style="text-align:center">Bar Chart</h4><a href="http://zdpoor.iweb.bsu.edu/DataVisWiki/examples/bar.html" target="_blank"><img src="http://zdpoor.iweb.bsu.edu/DataVisWiki/images/bar.png" style="width:250px"></a></td>
+						<td><h4 style="text-align:center">Line Chart</h4><a href="http://zdpoor.iweb.bsu.edu/DataVisWiki/examples/line.html" target="_blank"><img src="http://zdpoor.iweb.bsu.edu/DataVisWiki/images/line.png" style="width:250px"></a></td>
+						<td><h4 style="text-align:center">Radar Chart</h4><a href="http://zdpoor.iweb.bsu.edu/DataVisWiki/examples/radar.html" target="_blank"><img src="http://zdpoor.iweb.bsu.edu/DataVisWiki/images/radar.png" style="width:250px"></a></td>
+					</tr>
+					<tr>
+						<td><h4 style="text-align:center">Pie Chart</h4><a href="http://zdpoor.iweb.bsu.edu/DataVisWiki/examples/pie.html" target="_blank"><img src="http://zdpoor.iweb.bsu.edu/DataVisWiki/images/pie.png" style="width:250px"></a></td>
+						<td><h4 style="text-align:center">Doughnut Chart</h4><a href="http://zdpoor.iweb.bsu.edu/DataVisWiki/examples/doughnut.html" target="_blank"><img src="http://zdpoor.iweb.bsu.edu/DataVisWiki/images/doughnut.png" style="width:250px"></a></td>
+						<td><h4 style="text-align:center">Polar Area Chart</h4><a href="http://zdpoor.iweb.bsu.edu/DataVisWiki/examples/polar-area.html" target="_blank"><img src="http://zdpoor.iweb.bsu.edu/DataVisWiki/images/polararea.png" style="width:250px"></a></td>
+					</tr>
+				</table>
+		
+		<h3>Ok, sounds cool. Where can I get it?</h3>
+		<p>Everything Chart.js can be found on its website, <a href="http://www.chartjs.org/" target="_blank">chartjs.org</a>. The script file download, as well as sample HTML documents, instructions and other helpful information, can all be found on <a href="https://github.com/nnnick/Chart.js" target="_blank">GitHub</a>. The Chart.js library is the only thing download necessary to use this tool, besides some kind of text editor. Chart.js uses the canvas element of HTML5 to build charts on the web.</p>
+		
+		<h3>What have people done with this tool?</h3>
+		<p>Chart.js is a rather basic tool, an excellent way to quickly get visualized data online. However, because of its basic nature, many data journalists look to more expansive tools to best show their data and tell a larger story. Below are two examples of journalistic pieces that utilize programmatic charts with similar interactive features as offered with Chart.js.</p>
+		<p><a href="http://projects.propublica.org/nursing-homes/"><strong>"Nursing Home Inspect" by <em>ProPublica</em></strong></a></p>
+			<p><a href="http://projects.propublica.org/nursing-homes/"><img src="http://zdpoor.iweb.bsu.edu/DataVisWiki/images/ProPublica.png" style="width:700px"></a></p>
+			<p>This data visualization from <em>ProPublica</em> combines two chart types-- one of which Chart.js can create, one of which it cannot, to best tell this story. Chart.js can create the bar charts shown, but not the corresponding maps. This visualization explores data surrounding problems reported in nursing homes across the country. To do this, it uses a set of maps and corresponding bar charts. It uses one of the main interactive features of Chart.js--hover--to explore this data. Upon hovering over a specific state or bar, it's corresponding match will also highlight, to make the data more accessible and understandable.</p>
+		<p><a href="http://www.nytimes.com/interactive/2012/12/01/us/government-incentives.html?_r=0#home" target="_blank"><strong>"Explore the Data" by <em>The New York Times</em></strong></a></p>
+			<p><a href="http://www.nytimes.com/interactive/2012/12/01/us/government-incentives.html?_r=0#home" target="_blank"><img src="http://zdpoor.iweb.bsu.edu/DataVisWiki/images/NYT.png" style="width:700px"></a></p>
+			<p>This data visualization from <em>The New York Times</em> explores monetary incentives given to businesses by local and state governments. To interact with this chart, users hover over a state to see the preliminary data of total money received. This feature is similar to what can be accomplished with a Chart.js chart, despite that fact that Chart.js cannot create maps. To further explore the data, users click on the state so see individual businesses in that state and the amounts of money they were given.</p>
+		
+		
+		<h3>How on earth do I use this thing?</h3>
+		<p>To show you how easy it is to use this tool, I'll walk through a simple example of how to make the basic bar chart below. Each of the six available chart types use very similar steps and code, all of which can be found on <a href="https://github.com/nnnick/Chart.js" target="_blank">GitHub</a>.</p>
+			
+<!--Bar chart example-->
+			
+			<div style="width: 50%">
+			<canvas id="canvas" height="450" width="600"></canvas>
+			</div>
+
+
+	<script>
+	//var randomScalingFactor = function(){ return Math.round(Math.random()*100)};
+
+	var barChartData = {
+		labels : ["January","February","March","April","May","June","July"],
+		datasets : [
+			{
+				fillColor : "rgba(16,78,139,0.5)",
+				strokeColor : "rgba(16,78,139,0.8)",
+				highlightFill: "rgba(16,78,139,0.75)",
+				highlightStroke: "rgba(16,78,139,1)",
+				data : [35, 78, 49, 50, 27, 68, 73]
+			},
+			{
+				fillColor : "rgba(24,116,205,0.5)",
+				strokeColor : "rgba(24,116,205,0.8)",
+				highlightFill : "rgba(24,116,205,0.75)",
+				highlightStroke : "rgba(24,116,205,1)",
+				data : [48, 20, 84, 75, 62, 48, 56]
+			}
+		]
+	}
+	
+	window.onload = function(){
+		var ctx = document.getElementById("canvas").getContext("2d");
+		window.myBar = new Chart(ctx).Bar(barChartData, {
+			responsive : true
+		});
+	}
+
+	</script>
+<!--end bar chart example-->
+
+		<p><strong>1.</strong> First, you need to add the appropriate script file to your HTML document in the head tag. The Chart.js file can be downloaded from <a href="https://github.com/nnnick/Chart.js" target="_blank">GitHub</a>.</p>
+		<p><img src="http://zdpoor.iweb.bsu.edu/DataVisWiki/images/head_script.png"></p>
+		<p><strong>2.</strong> Chart.js makes use of the canvas element in HTML5. In order to display your chart on your HTML page, you need to create a div that can hold the canvas element. It is important to give the canvas element a specific id, as this value will be necessary to render the chart later.</p>
+		<p><img src="http://zdpoor.iweb.bsu.edu/DataVisWiki/images/div_canvas.png"></p>
+		<p><strong>3.</strong> Once the div and canvas are set up, you can being writing your JavaScript in a script tag. You want to create a variable that will hold all the data for your chart. The code and documentation that can be downloaded from <a href="https://github.com/nnnick/Chart.js" target="_blank">GitHub</a> has example data variables for each of the six available chart types that can be copy and pasted and then have the data swapped out. The labels set allow you do declare the number of data points your chart will have as well as label them, in this example they are months. The datasets allows you to enter the specific data as well as format the chart. In this example, the bars' fill color, stroke color, highlight fill, highlight stroke as well as that actual data were determined within the "datasets." Multiple data sets can be entered allowing for, in this example, multiple bars to appear for each specified month.<p>
+		<p><img src="http://zdpoor.iweb.bsu.edu/DataVisWiki/images/data.png"></p>
+		<p><strong>4.</strong> Finally you can run create your chart by running the function. The window.onload function is one already created in the Chart.js library and creates a chart by locating the canvas element and rendering a new chart using the data entered in the dataset variable. Closing the script tag will end the use of JavaScript in the document.</p>
+		<p><img src="http://zdpoor.iweb.bsu.edu/DataVisWiki/images/run_function.png"></p>
+		<p><strong>5.</strong> When the HTML file and Chart.js are uploaded to a hosting site, the chart will run on that page. This version of Chart.js also has the ability to be responsive (you can turn this feature on or off using a Boolean operator in the window.onload function). The chart is automatically interactive- allowing for data points to be shown on hover- because of the built in functionality of the Chart.js library. So there you have it! In just a few easy steps, you can have a beautiful, interactive chart.</p>
+		
+		<h3>What can't this thing do?</h3>
+		<p>Chart.js is great because it is a simple and easy-to-use tool that even the most novice designer or developer can use. However, to crate the ease of use, it is not as powerful as some other programmatic data visualization tools. The following list describes some of the limitations of Chart.js</p>
+		<ul>
+			<li>Unable to include a legend for the chart axes</li>
+			<li>No zooming or scrolling function</li>
+			<li>Not able to have multiple axes or trendlines</li>
+			<li>Only six chart types; not able to create horizontal bar charts, stacked charts, scatter charts or others</li>
+		</ul>
+		<p>Chart.js allows for quick and easy chartmaking on the web, with the sacrifice of some advanced features in exchange for speed and ease.</p>
+		<h3>Anything else I should know?</h3>
+		<p>Chart.js is a pretty powerful tool that can do a lot of things. Don't stress out trying to memorize all the incredible things it can do. View the Chart.js <a href="http://www.chartjs.org/docs/" target="_blank">documentation</a> to look up everything about the tool.</p>
+		<p>&nbsp;</p>
+		<hr>
+		<p syle="text-align:center"><i><small>Zach Poor   |   JOUR 242   |   Ball State University</small></i></p>
+	</div>
+	</body>
+</html>
+		
+		
+		
+		
+	<!--Use this for limitations http://www.fusioncharts.com/javascript-charting-comparison/-->

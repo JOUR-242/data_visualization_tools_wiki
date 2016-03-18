@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>UFO Sightings Line Chart</title>
+		<script src="http://zdpoor.iweb.bsu.edu/DataVisWiki/Chart.js"></script>
+		<link rel="stylesheet" type="css/text"  href="http://zdpoor.iweb.bsu.edu/DataVisWiki/chartjswiki.css">
+	</head>
+	<body>
+	<div class="container">
+		<center><img src="http://zdpoor.iweb.bsu.edu/DataVisWiki/images/alien.gif"></center>
+		<h1>"We Come In Peace"</h1>
+		<h2>Data Visualizations of UFO Sightings Reported in the U.S.</h2>
+		<p>The National UFO Reporting Center is an organization that investigates UFO sightings and/or alien contacts and has been in continuous operation since 1974. To see more detailed information about the sightings or to report a sighting yourself, visit <a href="http://www.nuforc.org/index.html" target="_blank">nuforc.org</a></p>
+		<p>&nbsp;</p>
+		<div>
+			<div class="chart">
+				<!--<p>&nbsp;</p>-->
+				<h2 id="charttitle">Annual Reported UFO Sightings</h2>
+				<h4>National UFO Reporting Center Report Index by Year, 1974-2015</h4>
+				<canvas id="canvas" height="450" width="800"></canvas>
+			</div>
+		</div>
+
+<!-- Line chart -->
+	<script>
+		//var randomScalingFactor = function(){ return Math.round(Math.random()*100)};
+		var lineChartData = {
+			labels : ["1974","1975","1976","1977","1978","1979","1980","1981","1982","1983","1984","1985","1986","1987","1988","1989","1990","1991","1992","1993","1994","1995","1996","1997","1998","1999","2000","2001","2002","2003","2004","2005","2006","2007","2008","2009","2010","2011","2012","2013","2014","2015"],
+			datasets : [
+				{
+					label: "UFO Sightings",
+					fillColor : "rgba(57,255,20,0.2)",
+					strokeColor : "rgba(57,255,20,1)",
+					pointColor : "rgba(57,255,20,1)",
+					pointStrokeColor : "#fff",
+					pointHighlightFill : "#fff",
+					pointHighlightStroke : "rgba(57,255,20,1)",
+					data : [316, 371, 333, 305, 388, 289, 288, 203, 216, 188, 209, 250, 225, 263, 279, 291, 303, 268, 295, 372, 486, 1461, 1001, 1421, 2006, 3137, 3069, 3511, 3662, 4401, 4724, 4492, 4136, 4710, 5269, 4961, 4736, 5572, 8046, 7731, 8579, 6721]
+				}
+			]
+
+		}
+
+	window.onload = function(){
+		var ctx = document.getElementById("canvas").getContext("2d");
+		var myNewChart = new Chart(ctx).Line(lineChartData, {
+			responsive: false
+		});
+		var ctx2 = document.getElementById("canvas2").getContext("2d");
+		window.myBar = new Chart(ctx2).Bar(barChartData, {
+			responsive : false
+		});
+		var ctx3 = document.getElementById("chart-area").getContext("2d");
+			window.myPie = new Chart(ctx3).Pie(pieData);
+	}
+
+
+	</script>
+	<p>&nbsp;</p>
+	<div class="chart">
+		<h2 id="charttitle">Monthly Reported UFO Sightings</h2>
+		<h4>National UFO Reporting Center Report Index by Month, 1974-2015</h4>
+
+			<canvas id="canvas2" height="450" width="800"></canvas>
+		</div>
+
+<!-- Bar Chart -->
+	<script>
+	//var randomScalingFactor = function(){ return Math.round(Math.random()*100)};
+
+	var barChartData = {
+		labels : ["January","February","March","April","May","June","July","August","September","October","November","December"],
+		datasets : [
+			{
+				fillColor : "rgba(57,255,20,0.2)",
+				strokeColor : "rgba(57,255,20,0.8)",
+				highlightFill: "rgba(57,255,20,0.5)",
+				highlightStroke: "rgba(57,255,20,1)",
+				data : [6842, 5522, 6484, 6503, 6777, 9730, 11869, 10739, 9769, 9478, 8837, 7194]
+			}
+		]
+
+	}
+
+	</script>
+	<p>&nbsp;</p>
+	<div class="chart">
+			<h2 id="charttitle">Top 10 Reported UFO Shapes</h2>
+			<h4>National UFO Reporting Center Report Index by Shape of Craft, all available years</h4>
+			<canvas id="chart-area" width="600" height="600"/>
+		</div>
+
+<!-- Pie Chart -->
+	<script>
+
+		var pieData = [
+				{
+					value: 21003,
+					highlight:"#00ff00",
+					color: "#e5ffe5",
+					label: "Light"
+				},
+				{
+					value: 10355,
+					highlight: "#00cc00",
+					color: "#b2ffb2",
+					label: "Circle"
+				},
+				{
+					value: 9772,
+					highlight: "#00b200",
+					color: "#7fff7f",
+					label: "Triangle"
+				},
+				{
+					value: 8051,
+					highlight: "#007f00",
+					color: "#4cff4c",
+					label: "Fireball"
+				},
+				{
+					value: 7336,
+					highlight: "#004c00",
+					color: "#19ff19",
+					label: "Unknown"
+				},
+				{
+					value: 7147,
+					highlight: "#001900",
+					color: "#00ff00",
+					label: "Other"
+				},
+				{
+					value: 6784,
+					highlight: "#e5ffe5",
+					color: "00cc00",
+					label: "Sphere"
+				},
+				{
+					value: 6611,
+					highlight: "#b2ffb2",
+					color: "#009900",
+					label: "Disk"
+				},
+				{
+					value: 4687,
+					highlight: "#7fff7f",
+					color: "#006600",
+					label: "Oval"
+				},
+				{
+					value: 3337,
+					highlight: "#4cff4c",
+					color: "#003300",
+					label: "Unspecified"
+				}
+
+			]
+
+	</script>
+	<p>&nbsp;</p>
+	<div class="chart">
+		<h2><a href="http://zdpoor.iweb.bsu.edu/DataVisWiki/dataviswiki.html">Head back to the wiki to see how this was done</a></h2>
+	</div>
+	
+	</div>
+	
+	</body>
+</html>
