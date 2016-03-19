@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<head>
+<link rel="stylesheet" type="text/css" href="http://afhovorka.iweb.bsu.edu/volleyball/volleyball.css">
+<title> D3 Wiki </title>
+
+</head>
+
+<div class="content">
+<body>
+<a href="https://d3js.org/"><img src="http://afhovorka.iweb.bsu.edu/volleyball/D3logofull.png"></a>
+<h1>D3 Wiki</h1>
+<p>Alan Hovorka</p>
+    <div class="toc">
+    <h3 name="toc" class="table">Table of contents</h3>
+    <a href="#what"class="table"><p>What is D3?</p></a>
+    <a href="#D3"class="table"><p>How D3 works</p></a>
+    <a href="#limits"class="table"><p>Limitations</p></a>
+    <a href="#viz"class="table"><p>Data visualization</p></a>
+    <a href="#walk"class="table"><p>Walkthrough</p></a>
+    <a href="#example"class="table"><p>Examples of use in journalism</p></a>
+    <a href="#add"class="table"><p>Additional resources</p></a>
+    </div>
+
+
+
+
+    <a name="what"><h2>What is D3?</h2></a>
+  <p>D3 stands for Data-Driven Documents. It's a JavaScript Library that focuses on reducing the redundancies of JS and adding functionality to the language that is data-driven. It's a data visualization library that focuses on handling and manipulating data from within the Javascript file, an external csv or tsv or even a live data source. D3 focuses on creating powerful and engaging data visualizations within a minimum amount of headache.</p>
+
+  <p> D3 brings data to life with by incorporating language and syntax that allows JS to play nicely with HTML, CSS, SVG. It’s a library that allows data to do the speaking and issuing of commands on how web elements are displayed. <strong>Instead of telling D3 how to do something, tell D3 what you want</strong></p>
+  <p>One of the main features of D3 is how it trims fat in JS. We'll look two sets of code that do the same thing. The first set is written in plain JS and the other is written with D3.</p>
+  
+  <p style="padding-left: 40px">var chart = d3.select(".chart");
+    <br>var bar = chart.selectAll("div");<br>
+var barUpdate = bar.data(data);<br>
+var barEnter = barUpdate.enter().append("div");<br>
+barEnter.style("width", function(d) { return d * 10 + "px"; });<br>
+barEnter.text(function(d) { return d; });</p>
+
+  <p>This is what that same code looks like in D3</p>
+
+  <p style="padding-left: 40px">d3.select(".chart")<br>
+  .selectAll("div")<br>
+    .data(data)<br>
+  .enter().append("div")<br>
+    .style("width", function(d) { return d * 10 + "px"; })<br>
+    .text(function(d) { return d; });</p>
+
+    <p>The power of D3 comes from its ability to group similar elements and vastly reduce the lines of code and number of variables that have to be written. What’s beautiful about this code isn’t how it’s cut down, but how it’s grouped. D3 focuses on grouping similar page elements together so they’re easier to work with. What does this mean? It means that if you mess something up, you don’t have rewrite your entire code. </p>
+
+    <p>D3 as a visualization tool creates simple charts and graphs by itself. To create more dynamic, visualizations, D3 enlists the help of SVG, a markup language that allows for the creation of two-dimensional graphics in a vector image format that supports interactivity and animation. SVG uses similar syntax to CSS and HTML. For example, instead of "background-color" in CSS, SVG uses "fill."</p>
+
+    <p>D3 generalizes. And by generalizing, we are able to group things together so they’re easier to work with. What is the end product of this? We have a few lines of JavaScript that reach across HTML, CSS, SVG and JS to create web elements. One way to look at it is that you are writing with multiple languages at once.</p>
+
+    <p>We'll cover how D3 conducts these generalizations and works with these groups in the next section.</p>
+
+    <p ><a href="#toc" class="back">#Back to top</a></p>
+
+
+
+
+
+
+
+<a name="D3"><h2>How D3 works</h2></a>
+  <p>We'll delve deeper into the key features of D3 in this section. But first, let's go over how to load the library</p>
+  <strong>Loading D3</strong>
+  <p>All you have to do is point your script tag toward the D3 location. You can either <a href="https://github.com/mbostock/d3/releases/download/v3.5.16/d3.zip">download</a> the library from Github or point to its hosting source, which is <strong><code>&lt;script src="//d3js.org/d3.v3.min.js" charset="utf-8">&lt;/script></code></strong>. This will load D3 and you can start coding in your Javascript file using D3's syntax. More on that later.</p>
+
+  <strong>Selections</strong>
+  <p>The preceding code featured some lines of code with the word "select" in them. This is one of the types of selectors in D3. Generally, selectors select a page element and tell D3 this is where you are going to place data. </p>
+
+  <p>More specifically, D3 handles groups of related elements called selection. Working with these groups of elements en masse gives your selection power and allows you to manipulate a single element or many at once without restructuring your code or having to run loops and other control flow code. In short, it’s a cleaner way to work with data.
+</p>
+<p>According to D3js.org: <strong>“A selection is an array of elements pulled from the current document.”</strong> </p>
+<p>There are two methods of selecting elements in D3. They are "select" and "selectAll"</p>
+<p>These methods allow you to accept selector strings. The first method selects only the first matching element, while the latter selects all matching elements in document traversal order. These methods can allow you to import third-party libraries with nodes.
+</p>
+
+<p>Let's go through how these selectors can be used.</p>
+
+
+<p style="padding-left: 40px">d3.select(selector)<br>
+This line takes the first element that matches the specified selector string and returns a single-element selection. If nothing matches in the current document the selection returns empty. If multiple elements match the selector, only the first matching element (in document traversal order) will be selected.</p>
+
+<p style="padding-left: 40px">d3.selectAll(selector)<br>
+This takes in all elements that match the specified selector. The elements will be selected from top-to-bottom in the document. If no nothing matches this line of code, the returns comes back empty.</p> 
+
+<p style="padding-left: 40px">d3.select(node)<br>
+This selects a specified node. This comes in handy when you already have referenced to a node, such as d3.select(this) within an event listener or a global event such as document.body. </p>
+
+<p style="padding-left: 40px">d3.selectAll(nodes)<br>
+This selects the specified array of elements. If you’ve already referenced to nodes, such as d3.selectAll(this.childNodes) within an event listener, or a global such as document.links, this can be handy. 
+The nodes argument doesn't have to be an array. Any pseudo-array that can be forced into an array will work.</p> 
+
+<p>Remember: Selections are arrays of elements. </p>
+
+  <p>This is where things begins to make sense in terms of D3 marrying four different languages together.</p>
+<p>Here are just some of the HTML, CSS or SVG elements you can select.</p>
+  <ul>
+<li>Tag ("div")</li>
+<li>Class (".awesome")</li>
+<li>Unique identifier, known as id, ("#foo")</li>
+<li>Attribute ("[color=red]")</li>
+<li>Containment ("parent child") </li>
+<li>G element, which is a container used to group other SVG elements you draw</li>
+  </ul>
+
+<p>Selectors can also be intersected (".this.that" for logical AND) or unioned (".this, .that" for logical OR).</p>
+
+<p>Loops or recursive functions aren’t needed because D3 allows you to modify entire arrays at once. This eliminates the need to looping individual elements over and over again. You can still loop if you wish to. D3 has an each operator that invokes an arbitrary function so elements can be accessed directly. 
+This is of particular importance because of the data visualization I've created later in this wiki.</p>
+<p>We'll take a look at how selectors work in action later.</p>
+
+<p>The nuance of D3 comes from the fact that selections are grouped. Instead of arrays being one-dimensional, <strong>each selection is an array of array of elements.</strong>
+</p>
+
+<p>The advantage of this is that it preserves the hierarchical structure of subselections. This can usually be overlooked. However, in single-element selection this looks like [[node]] instead of just node. 
+</p>
+
+  <strong>Operators</strong>
+  <p>Operators tell data to behave in a specific manner. You first select an element and then tell it do stuff with an operator. They allow you to display data. Selectors allow you to select, group and categorize that data.</p>
+  <p>Operators can get or set attributes, styles, properties, HTML and text content. Attribute values are specified as constants or functions. Functions will be evaluated for each element. 
+</p>
+
+<p>They must return the current selection, so you can chain multiple operators together in a concise statement. In other words, your operators must make sense in order for the computer to run them into multiple chains that simplify the overall output, your visualization or a component of that visualization. 
+</p>
+  <p>The D3 <a href="https://github.com/mbostock/d3/wiki/Selections#operating-on-selections">documentation</a> lists all of the different operators.</p>
+  <strong>Appends</strong>
+  <p>Appends insert a new element in a selection.</p>
+  <p>For example:</p>
+  <p style="padding-left: 40px">var g = svg.selectAll("g")<br>
+      .data(function (d) { return pie(d.percent); })<br>
+      .enter().append("g");</p>
+      <p style="padding-left: 40px">
+ <strong>g.append("text")</strong><br>
+      .attr("transform", function(d) { return "translate(" + arc.centroid(d) + ")"; })<br>
+      .attr("dy", ".35em")<br>
+      .attr("class", "arcLabel")<br>
+      .style("text-anchor", "middle")<br>
+      .text(function(d) { return d.data.percent == 0 ? "" : d.data.percent.toFixed(1) + "%" ; });
+
+      </p>
+  <strong>Data joins</strong>
+  <p>Say you want some circle elements to correspond to data where each circle is one datapoint. You want one circle per datum. Instead of instructing D3 to create circles, tell D3 that the selection "circle" should correspond to data. This concept is called the data join.</p>
+  <p>Joins let you target operations to specific states. For example, you can set constant attributes (such as the circle’s radius, defined by the "r" attribute) on enter rather than update. 
+By reselecting elements and minimizing DOM changes, you vastly improve rendering performance! These are all specific states the data takes on. 
+</p>
+
+  <strong>Enters, updates, exits</strong>
+  <p>Selections can be joined to data, which can be made available to operators for visualization. Enters, updates and exits represent data states. These three  </p>
+  <p>By joining data, enter and exit subselections are created so that you can easily add or remove elements in response to changes in data.</p>
+
+<p>For more information about D3, its syntax and functions, go to <a href="https://d3js.org/">D3js.org</a></p>
+
+  <p ><a href="#toc" class="back">#Back to top</a></p>
+
+
+
+
+
+
+<a name="limits"><h2>Limitations of D3</h2></a>
+  <p>D3 has a few a limitations. DOM manipulation can be slow for a large number of data entries. What this means is that the more data you have that you are trying display on your page at one time, the slower it will load. DOM stands for Document Object Model, which is the programming interface for HTML, CSS, XML and SVG. </p>
+
+  <p>SVG's performance will lag when it has to display a large volume of elements at once.</p>
+
+  <p>Another hinderance in D3 is how opaque some of the functions and syntax can be because of how it is a modified version of JavaScript. If you have a strong foundation in JS, you should be fine.</p>
+
+  <p>I personally ran into issues not knowing everything about JavaScript. I spent a lot of time reading the D3 documentation and browsing the Stacked Overflow forums. You should know how to use HTML and CSS. Knowing SVG is not necessary because there are plenty of D3 examples that use it where you can figure out what's going on. Creating my visualization was a lot of trial and error, to be honest.</p>
+  
+    <p ><a href="#toc" class="back">#Back to top</a></p>
+
+
+
+
+<a name="viz"><h2>Data visualization</h2></a>
+  <h4 style="font-size: 18px;">The most winningest MIVA teams during in-conference play</h4>
+  <em>These charts display win percentages and rankings for in-conference play for the Men's Intercollegiate Volleyball Association. The ranking of each team is based on who has the higher win percentage, which is derived from their win-loss record as of March 11, 2016. It's important to note that while IPFW has not won a single match against a conference team, it has won 7 matches against non-conference teams. These charts are meant to show how these conference teams match up against each other during conference play.</em>
+          <!--This creates the container for our data viz and then loads the JavaScript we need-->
+              <div class="donut">
+            <script src="//d3js.org/d3.v3.min.js"></script>
+            <script src="http://afhovorka.iweb.bsu.edu/volleyball/volleyball.js"></script>
+            </div>
+            <em style="font-size: 12px;"><a href="http://mivavolleyball.com/sports/mvball/2015-16/standings">source: mivavolleyball.com</a></em>
+            <em style="font-size: 12px;"><a href="http://afhovorka.iweb.bsu.edu/volleyball/data.csv">CSV source file</a></em>
+
+  <p ><a href="#toc" class="back">#Back to top</a></p>
+
+
+
+
+<a name="walk"><h2>Walkthrough</h2></a>
+<h3>What you need</h3>
+  <p>In order to create this visualization, you need to collect the data first.</p>
+  <p>I pulled my data from <a href="http://mivavolleyball.com/sports/mvball/2015-16/standings">mivavolleyball.com</a>. I pulled this data set from the standings page. I scraped it off the HTML with Google Sheets. I dropped the URL into a cell on the sheet and then ran the =ImportHTML function and told it to pull all data located within the "Table" tags of the page's HTML.</p>
+
+  <img style="padding-top: 10px; padding-bottom: 10px;"  style="width: 80%" src="http://afhovorka.iweb.bsu.edu/volleyball/scrape.PNG">
+<p>The No. 1 in the function indicates index on the HTML. It's telling the sheet to pull data from Table No. 1.</p>
+  <p>I had an issue where the Win/Loss Record was being imported as a date. To fix this, I ran the =Split function and assigned a delimeter of "/" in order to tell it to split the date into 3 separate columns based on "/". Now, I have the Win/Loss record displayed cleanly. Then, I divided the wins from the total number of games and created columns for Win % and Loss %. I exported this information into a <a href="http://afhovorka.iweb.bsu.edu/volleyball/data.csv">CSV</a> file because D3 can pull external data from a CSV or TSV file that's in the local directory. I uploaded this csv file on my server and moved on to the visualization part. I only exported the conference numbers for simplicity.</p>
+
+  <h3>Setting up your HTML</h3>
+  <p>Declare your document type. Establish your header and body tags. You'll want to create div with a custom class name inside your body. The reason for this is that you need to designate a space where your D3 charts will generate once your visualization goes live. If you just drop the scripts loose inside the body tags, the charts will generate at the body of the page.</p>
+
+  <p>Inside your divs, you'll need to create two script tags. One imports the D3 library, <strong><code>&lt;script src="//d3js.org/d3.v3.min.js" charset="utf-8">&lt;/script></code></strong>, and the other points toward your external JS file. See the below image for an example.</p>
+
+  <img style="padding-top: 10px; padding-bottom: 10px;" src="http://afhovorka.iweb.bsu.edu/volleyball/htmlviz.PNG">
+<p>The HTML for our data viz is underneath the HTML comment. The text above is the chart title and chatter. The em tags beneath the div are for linking to sources. The next thing we'll look at is the full <a href="http://afhovorka.iweb.bsu.edu/volleyball/volleyball.js
+">JavaScript</a> that we've linked to in the div. We'll get to the CSS file after that.</p>
+  
+  <img style="padding-top: 10px; padding-bottom: 10px;" src="http://afhovorka.iweb.bsu.edu/volleyball/fulljs.PNG">
+<p> Not a whole lot of JavaScript, right? That's what's great about D3 is that minimizes the amount of code you have write for the nine charts you just saw. This donut chart is about 90 lines of JavaScript in total. There are two many groupings of the Javascript here. The first part is a number of variable declarations and the second part is the creation of our charts, which starts with pulling data from the selection d3.csv. The way these two groupings interact is that the d3.csv part runs a series of functions and commands that rely on the individually defined variables we have up top. The first group is essentially a loose collection of variables and the second part is unified system of selections. Try to think of the first group as the United States and the second group as a country like Germany. One is a loose collection independent governments and the other is centralized government with some provinces.</p>
+
+<p>Let's delve into the first group and then we'll go back and review the CSS relevant to the donut charts.</p>
+  <img style="padding-top: 10px; padding-bottom: 10px;" src="http://afhovorka.iweb.bsu.edu/volleyball/vizjsvars.PNG">
+<p>As you go line-by-line, you'll realize we are defining the dimensions of our donut charts. At first glance, it looks like it's for a singular chart. It's not. We're establishing general parameters that can plugged into reiterated functions</p>
+
+<p>Radius and padding determine the entire size of our donut chart and the padding surrounding it. Color determines how many colors we'll be available for our differnet data values/columns. We're selecting the colors for each of the slices on the donut. Arc is establishing the measurements needed to create a donut chart. It states that outerRadius is our previously define radius and that innerRadius is radius minus 35. Pie declaring a variable that tells D3 we want to create a pie chart that will become a donut chart because of the inner and outer Radii. </p>
+
+<p>These are the variables that will be used over and over again to create a unified set of donut charts.</p>
+<p>Let's check out our CSS real quick.</p>
+<img style="padding-top: 10px; padding-bottom: 10px;"  src="http://afhovorka.iweb.bsu.edu/volleyball/cssviz.PNG">
+<p> Here we are defining what our body copy will be for the chart's labels and titles with the .body class. Note: None of these classes actually appear in the HTML. They are items that will appear in our D3 code. That's what's great and confusing about D3. You can define CSS classes inside JavaScript. The only CSS class here that's in our HTML is .donut because that's our div containing the JavaScript.</p>
+<p>We've gone over the variables that will define how the series of charts will be created and also looked at the CSS that will stylize them. Let's look at how we pull this data in and tell D3 what we want. We'll start with a survey of the entire code that actually create the charts and legend.</p>
+  <img style="padding-top: 10px; padding-bottom: 10px;" src="http://afhovorka.iweb.bsu.edu/volleyball/entiredonut.PNG">
+<p>Remember how I called this second group Germany because it's a centralized entity with provinces? We have three provinces and a captiol here.</p> <p>Our captial is the d3.csv running through the data.forEach function.</p>
+
+<p>Our first province is the legend province focuses on creating the legend. It runs from var legend through legend.append. (Remember appends? They insert new elements!)</p>
+<p>Our second province creates the charts. This starts ar var svg and runs through svg.append.</p>
+<p>Our last province creates our chart percentage labels. This begins at var g and runs through g.append.</p>
+<p>Together these 4 groupings come together to create our nine donut charts and legend.</p>
+<p>Let's pick apart the data call.</p>
+  <img style="padding-top: 10px; padding-bottom: 10px;" src="http://afhovorka.iweb.bsu.edu/volleyball/vizdataload.PNG">
+<p>Let's take a tour of the capitol, shall we?</p>
+<p>We call a selection. This selection is of our data.csv that we exported from Google Sheets, which scraped data from MIVA's website.</p>
+<p>We run a function as we call the data.csv that checks to see if the data is present. If it's not, then no donut charts and the console tells us there is an error. If the data is called correctly, then we run through the rest of this code. color.domain filters through the dataset and looks for any values that are not numbers or depedent variables. We return a key that tells D3 that anything under the column header Team or Record is not a number. This prevents those data values from being displayed in the legend of the chart itself.</p>
+<p>Now, here's where we create each of the nine charts in just four lines. Actually, this next piece of code tells D3 that we want iterate for each of the Teams. How it will iterate will be determined later. </p>
+<p>data.forEach(function(d) {...} establishes order in how D3 will interpret the data. We tell it we want it to view Team as an indepedent variable that will have a chart created for each individual team that will display the Win/Loss percentages. </p>
+<p>You may be wondering where we defined "percent". We rally didn't, but did. It's mentioned in our var pie = d3.layout variable, but it's created by the fact we establish Teams as our indepdent variables.</p>
+<p>To sum up, we pull in data, we filter it and tell it which columns are strings and numbers and then tell D3 how we want to associate and order this data. Let's move on to the legend.</p>
+  <img style="padding-top: 10px; padding-bottom: 10px;" src="http://afhovorka.iweb.bsu.edu/volleyball/legend.PNG">
+<p> This is our first province. It's a legend, a roadmap of how to navigate each of the nine charts we're going to create.</p>
+<p>We declare a new variable, legend. We select our HTML div as the location of it and we tell D3 we want to insert a SVG element. We're creating the container where our legend will appear. The attr operators create new classes and declare heigh and width for each of the legend container. It then pulls in the dataset and tells it how to behave in this space. With legend.append("rect"), We're creating small rectangles for each of the percent variables inside our legend container. We tell it the height and width for each and then declare the color and fill. Why fill? We're using SVG, remember? </p>
+<p>The last bit of code in this province appends text for our legend. What good is a legend if it doesn't tell use what the colors mean? We assign x and y coordinates for where the text will sit. Note: In SVG, the x,y coordinate system starts from the top-left corner. We tell the text where to sit relationally with the rectangle and then declare a new class called "body". Remember how our CSS file had a class for .body? This is what it is directing to. Finally, we run .text and tell the legend what to pull and to attach a percent sign because CSV files cannot contain percents and work with D3.</p>
+<p>Let's make some charts.</p>
+  <img style="padding-top: 10px; padding-bottom: 10px;" src="http://afhovorka.iweb.bsu.edu/volleyball/donut.PNG">
+<p>I've divided this part from the code that creates the internal labels on the chart for readability purposes. </p>
+<p>We declare a new variable called svg. This will create our donut charts. We tell D3 to pull data from .data, which is established at the beginning of this code section. We assign attributed for the size of the charts and then insert a SVG element called "g". G creates an SVG container. This is where we'll plop our donut charts in. </p>
+<p>We use selectAll to create the nine charts and tell it refernce the arc variable we created earlier in the CSS and the top of the JavaScript.</p>
+<p>We tell D3 to pull data from function(d), which established our data order. We then tell it to create the charts with .enter().append("path"). We create an arc class for CSS styling and then assign data points to the arc of the donut chart. We close out by telling D3 to finish pulling the data we defined in the d3.csv and fill our donut arcs with them.</p>
+
+<p>Now that we've create our charts, let's add a title to the inside.</p>
+  <img style="padding-top: 10px; padding-bottom: 10px;" src="http://afhovorka.iweb.bsu.edu/volleyball/donuttext.PNG">
+<p>These two clumps of code do the exact same thing except one pulls Team names and the other pulls the actual Win/Loss Record for each Team. </p>
+<p>We start off by telling D3 to insert a new element inside Var svg and that this new element will be text, hence the ("text"). We assign a place for the new text on the x/y coordinate system. We then tell the text to pull CSS styling from class "body". Then, we anchor this text to the middle of the donut chart. Finally, we call our new text with a function.</p>
+
+<p>So far we've established our variables, pulled in data, created a legend and then created nine donut charts with titles in the middle. Let's add the percent values on to the donut slices.</p>
+  <img style="padding-top: 10px; padding-bottom: 10px;" src="http://afhovorka.iweb.bsu.edu/volleyball/donutlabels.PNG">
+<p> Here we declare a new variable called g. Remember how we used g to draw our donut containers? Well that's why we've named it this. We call the svg.selectAll("g") command and then pull our donut chart data(pie). Basically, we're telling this new variable that the new element we're creating is on an existing element, hence the similar naming and selection calling. This top piece of code creates our text container within our donut chart container, which ends up resting on the arcs of the donut chart. </p>
+
+<p>g.append("text") tells D3 to insert new text inside of the container we just created. We give it some positioning attributes and tell it to convert the arc data value to a string that will be our percent label on the arc. We then give it x/y positioning followed by CSS styling and then an anchor point on the donut slice. Finally, we call the text creation function and tell it to pull all data greater than zero and write it on the donut slice. We say greater than zero in order to avoid an unncessary 0% label on IPFW. </p>
+
+<p>That's it. This was how I created this donut chart. Make sure you close the brackets and parenthesis at the end of the code for the d3.csv.</p>
+
+    <p ><a href="#toc" class="back">#Back to top</a></p>
+
+
+
+
+<a name="example"><h2>Examples of use in journalism</h2></a>
+
+<p>D3 is a tool widely used in journalism. I felt The New York Times has some of the best examples of its uses in the industry.</p>
+
+<h3>Paths to the White House - The New York Times</h3>
+<a href="http://elections.nytimes.com/2012/results/president/scenarios"><img style="padding-top: 10px; padding-bottom: 10px;" style="width: 60%;" src="http://afhovorka.iweb.bsu.edu/volleyball/president.PNG"></a>
+
+  <p>This tool allows the user to explore the possibilities and alternate outcomes of the 2012 presidential election. The preface to this tool is that President Obama won a clear victory, but his popular vote margin in several swing states was thin. The premise here is to examine what Obama or Romney's path to the White House would have looked like if certain states had voted differently than they actually did.</p>
+  <p>The dataset in this tool includes the percent each candidate won or lost a swing state. This data is used as a label up top. The core visualization is of three columns—Swing State, did Obama win and did Romney win. This creates a series of yes or no values that can be used to calculate all possible pairings. The result is the title "512 Paths to the White House." The tool displays all of these paths by default. The user can alter the visualization by selecting a winner of a state at the top. This will narrow the paths to the Oval Office. It shows how numerous Obama's paths were versus Romney's. </p>
+  <p>D3 was a good choice for this dataset because of its ability to command data. Remember: It's about telling D3 what you want versus how to do it. </p>
+
+  <h3>Drought Extends, Crops Wither - The New York Times</h3>
+
+  <a href="http://www.nytimes.com/interactive/2012/08/24/us/drought-crops.html?_r=0"><img style="padding-top: 10px; padding-bottom: 10px;" style="width: 60%;" src="http://afhovorka.iweb.bsu.edu/volleyball/drought.PNG"></a>
+
+  <p>This tool by the New York Times focuses on showing how 2012's drought rivaled the 1988 drought and how droughts affected the economy. This looks at the varying effects of the summer heat and drought on crops critical to the farm economy.</p>
+  <p> This tool visualizes crop condition, price received and yield for a specific crop and crop size and location for a number of key U.S. crops from corn to cotton. The tool does a forEach command like in my visualization to create separate charts for each crop. The tool allows the reader to hover over a specific date and see how the nation was affect by heat and drought both in terms of crop yield and economic production. The tool also points at key moments and outliars in each chart for each crop. It offers context as to why certain things happened.</p>
+  <p>This data was a good fit for D3 because of D3's ability to group similar elements, separate them when necessary and iterate certain functions over and over again with minimal overhead. This is partially done with the forEach function. Everything on this page is unified in terms of design and data. What separates the different charts is the type of crop. D3 generalizes elements and data in order to make manipulating data easier. This is a prime example of that concept.</p>
+
+  <h3>How the Chicago Public School District Compares - The New York Times</h3>
+  <a href="http://elections.nytimes.com/2012/results/president/scenarios"><img style="padding-top: 10px; padding-bottom: 10px;" style="width: 60%;" src="http://afhovorka.iweb.bsu.edu/volleyball/chicagoschool.PNG"></a>
+
+  <p>This tool is a little more complex than the previous ones. It's not minimal it's design or layout. There's a lot of information in this data and in the context of this data. There's a lot going on here. However, this is a good example of how to manipulate large data sets and make it digestible. While it's not simple, it is well-designed and context is effectively provided. </p>
+  <p>This tool focuses on breaking down the issues that are important to the Chicago public schools and attempts to provide context as to why the Chicago Teachers Union might have gone on strike. It looks at a variety of data sets such as annual salaries, how many hours teachers work and if test scored are used in evaluations. The tool allows you to explore how Chicago pairs up to other major cities across the country in terms of these data sets. Are Chicago schools teachers paid the most? You can figure that out. The tool comes with chatter explaining what the various interactive columns mean.</p>
+  <p>This data set was a good fit for D3 because of how large and dimensional it was. D3 works well with generalizing sets of data and allowing the user to manipulate it through a front end. This tool exemplifies this. </p>
+
+    <p ><a href="#toc" class="back">#Back to top</a></p>
+
+
+
+
+<a name="add"><h2>Additional resources</h2></a>
+
+<p>If you would like to learn more about D3 or have questions about function of D3, try one of these resources:</p>
+
+<h3><a href="https://d3js.org/">D3's website</a></h3>
+<p>This D3's main website. It contains everything you need about the library's documentation. It also houses hundreds of examples of D3 charts and examples of different interactivity for charts. I spent several hours going through the documentation and examples in order to create my visualization. I picked an example as a starting point for my D3 donut chart.</p>
+
+<h3><a href="http://stackoverflow.com/">Stacked Overflow</a></h3>
+<p>Stacked Overflow is a forum for programmers. It houses an archive of questions on how to do certain things in any language, particularly D3. I found it to be quite helpful in trying figure out what some of the lines of code in my donut chart meant. I also used it to pose a question on how to get my labels to only show values greater than zero. If you're stuck, check this website out and maybe create an account so you can pose a question.</p>
+
+<h3><a href="https://github.com/mbostock/d3/wiki/Tutorials">D3 Tutorials</a></h3>
+
+<p>D3's website houses a number of tutorials on creating various charts with D3 and SVG. I spent several hours going through them. I found them helpful in understanding the syntax and mindset needed to use D3.</p>
+
+<h3><a href="https://github.com/mbostock/d3/wiki/Gallery">D3 Example Gallery</a></h3>
+<p>Trying to figure out how to visualize your data? Give this gallery a peak. Most of the examples here are open source and you can use them as a starting point for your data visualization. Each example usually includes an explainer as to how the visualization works or offers links to documentation.</p>
+
+    <p ><a href="#toc" class="back">#Back to top</a></p>
+
+</body>
+</div>
+</html>
