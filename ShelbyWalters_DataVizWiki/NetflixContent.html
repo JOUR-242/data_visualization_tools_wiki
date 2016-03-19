@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<body>
+<h1>Shelby Walters GeoCharts Data Visualization Wiki<h1>
+<h2>Total Number of Netflix TV Shows and Movies in Each Country</h2>
+<p>Netflix is not available in every country and the number of TV shows and movies available to subscribers varies. The United States has the largest total, while some countries such as China don't have Netflix. </p>
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+       <div id="regions_div" style="width: 900px; height: 500px;"></div>
+<script src="netflix_content.js"></script>
+<p>Source: <a href="https://www.finder.com/global-netflix-library-totals">Finder.com</a></p>
+<h3>What is GeoCharts?</h3>
+<p>GeoCharts is a very simple and easy to use data visualization tool. GeoCharts is map of a country, continent or region with areas identified in one of three ways:</p>
+	<ul>
+		<li>Regions- colors who regions, such as countries, provinces or states</li>
+		<img width="700" src="wiki_images/regions.png"/>
+		<li>Markers- uses circles to designate regions that are scaled according to a value that you specify</li>
+		<img width="700" src="wiki_images/markers.png"/>
+		<li>Text- labels the regions with identifiers, such as 'Russia' or 'Asia'</li>
+		<img width="700" src="wiki_images/text.png"/>
+	</ul>
+<h3>Where to get GeoCharts</h3>
+<p>You can find the tool on <a href="https://developers.google.com/chart/interactive/docs/gallery/geochart#overview">Google Developers</a>. Google has several different visualization tools, but I chose GeoCharts. Geocharts does not need any additional software. All the code that you need is provided to you, so you just have to add your own data. You can take the code and edit it in a text environment like JSFiddle.</p> 
+<img width="700" src="wiki_images/GeoChart_jsfiddle.png"/>
+
+<h3>How GeoCharts Works</h3>
+<p>Before using GeoCharts, I used Google Spreadsheets to scrape my data from <a href="https://www.finder.com/global-netflix-library-totals">Finder.com</a>, which had the number of Netflix TV shows and movies available in each country.</p>
+<img width="700" src="wiki_images/data_Finder.jpg"/>
+<p> I had to organize my data before I could put it into my GeoChart. I alphabetized the countries and used the sum formula to add the number of movies and TV shows.</p>
+<img width="700" src="wiki_images/data_Spreadsheets.png"/>
+<p>GeoCharts uses Javascript and HTML code</p>
+<img width="700" src="wiki_images/jsfiddle_setup.png"/>
+<p>The map is created by using a function that draws the type of GeoChart that you want, in this case regions.</p>
+<img width="700" src="wiki_images/jsfiddle_drawMap.png"/>
+<p>After the computer knows what it is making, you specify and load your data into arrarys.</p>
+<img width="700" src="wiki_images/jsfiddle_data.png"/>
+<p>The options variable allows you to change how your GeoChart looks. You can change the colors represented on your map and values of the axis.</p>
+<img src="slwalters.iweb.bsu.edu/jour_242/Netflix_content/wiki_images/jsfiddle_options.png"/>
+<p>Finally, the variable chart, which is the map, is drawn using your data and options you included.</p>
+<img width="700" src="wiki_images/jsfiddle_drawChart.png"/>
+<p>After you finish your Javascript code you have to link your Javascript to your HTML file. The part in green 'netflix_content.js' is the name of the Javascript file that you are linking to.</p> 
+<img width="700" src="wiki_images/jsfiddle_link.png"/>
+<p>Your final Geochart should look something like this.</p>
+<img width="700" src="wiki_images/GeoChart_final.png"/>
+
+<h3>Limitations</h3>
+<p>GeoCharts does not allow you to zoom in and out or drag around the map. I also found that because the tool is very simple you can only put in one column of numbers; it only measures/compares the first number you put in although you can see all the other numbers when you hover over the country.</p>
+
+<h3>Additional Resources</h3>
+<p>Google Developers offers you a list of possible <a href="https://developers.google.com/chart/interactive/docs/gallery/geochart#configuration-options">options</a> and <a href="https://developers.google.com/chart/interactive/docs/gallery/geochart#events">events</a> you can add to your map.</p>
+
+<h3>Examples</h3>
+<p>These examples from the New York Times are not exactly like GeoCharts, but they have similar qualities.</p>
+<a href="http://www.nytimes.com/2015/08/20/upshot/how-texas-could-set-national-template-for-limiting-abortion-access.html?_r=1">How Texas Could Set National Template for Limiting Abortion Access </a> 
+<img width="700" src="wiki_images/example_Texas.png"/>
+<p>This map is similar to a regions Geochart because it colors a region. It also includes a hover features that makes a box pop up when you move your mouse over a county.</p>
+<a href="http://www.nytimes.com/interactive/2015/07/24/business/international/the-world-according-to-china-investment-maps.html">China Share of Foreign Investment</a> 
+<p>This map is similar to a markers GeoChart because it uses different colors and sizes of circles scaled to specific values. This example also includes a hover feature that always you to see more information about each specific circle.</p>
+<img width="700" src="wiki_images/example_China.png"/>
+</body>
+</html>
