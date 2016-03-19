@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+	<head>
+		<title>Data Visualization Project</title>
+	</head>
+	
+	<body>
+	<div id="container"; style= "padding-left:100px";> 
+		<h1>Beautiful Soup</h1>
+		<h3>What is Beautiful Soup and why is it used?</h3>
+		<p>According to <a href="http://www.crummy.com/software/BeautifulSoup/";>crummy.com</a>, "Beautiful Soup is a Python library designed for quick turnaround projects like screen-scraping." It provides methods for navigating, searching and modifying a parse tree, which is a "toolkit for dissecting a document and extracting what you need." It also only takes a small amount of code to write an application and saves time on projects that would take hours to get data.</p>
+		<p>Beautiful Soup has been used for several projects. The following examples are all listed on <a href="http://www.crummy.com/software/BeautifulSoup/";>crummy.com</a>
+			<ul>
+				<li>"Movable Type", a work of digital art on display in the lobby of the New York Times building, uses Beautiful Soup to scrape news feeds. </li>
+				<li>Reddit uses Beautiful Soup to parse a page that's been linked to and find a representative image. </li>
+				<li>Alexander Harrowell uses Beautiful Soup to track the business activities of an arms merchant. </li>
+				<li>The developers of Python itself used Beautiful Soup to migrate the Python bug tracker from Sourceforge to Roundup. </li>
+				<li>The Lawrence Journal-World uses Beautiful Soup to gather statewide election results. </li>
+				<li>The NOAA's Forecast Applications Branch uses Beautiful Soup in TopoGrabber, a script for downloading "high resolution USGS datasets." </li>
+			</ul>
+		<h3>Where to get Beautiful Soup</h3>
+		<p>In order to get Beautiful, you can download the latest version from <a href="http://www.crummy.com/software/BeautifulSoup/bs4/download/";>crummy.com</a>. For in-depth instructions on installing Beautiful Soup on a mac, visit the J242 <a href="https://github.com/JOUR-242/course_resources/blob/master/installBeautifulSoup.pdf";>GitHub</a> page.</p>
+		
+		<h3>What is needed to make the tool work (software, downloads, libraries, etc.) and where you get that</h3>
+			<ul>
+				<li>Python and Beautiful Soup</li>
+				<li>Text Editing Program (Like Textwrangler)</li>
+				<li>Data Spreadsheet (Google Spreadsheets, Excel, etc.)</li>
+				<li>Adobe Illustrator</li>
+			</ul>
+		<p>Python is needed in order to use Beautiful Soup, which is already on macs, but needs to be installed through the computer terminal. To find the terminal on a mac, go to Applications > Utilities > Terminal. If you do not have Python, the latest version can be downloaded at <a href="https://www.python.org/downloads/";>python.org</a>.</p>
+		<p>To download a text editing program on a mac, visit the App Store and search for Textwrangler, etc.</p>
+		<p>To use Google Spreadsheets visit <a href="https://www.google.com/sheets/about/";>here</a>. You have to have a Gmail account to use Google Spreadsheets. To use Excel you have to buy a download for it.</p>
+		<p>Adobe Illustrator requires a subscription in order to download the software.</p>
+		
+		<h3>Example: Mr. Map Generator</h3>
+		<p>Mr. Map Generator, a web application created by <i>The Boston Globe</i> designer and graphic artist Patrick Gavin, is an example of a data map generator. <a href="http://patrickgarvin.com/maps/USmap.htm";>Mr. Map Generator</a> is an alternative to using Python and Beautiful Soup to create interactive, data driven maps of the United States. Mr. Map Generator also uses even less code than Beautiful Soup, which is also generated for you in the process of making the map. </p>
+		<p>A live example of a choropleth map created using Mr. Map Generator can be viewed at <a href="http://www.bostonglobe.com/news/nation/2013/08/25/backers-health-care-law-encounter-hostility-and-blank-stares-they-seek-educate-texans/zCCDfnxodDoxHZbtOe2ehL/igraphic.html";>bostonglobe.com</a>, which displays health law coverage throughout the United States. This map is related to The Boston Globe article, <a href="http://www.bostonglobe.com/news/nation/2013/08/25/backers-health-care-law-encounter-hostility-and-blank-stares-they-seek-educate-texans/zCCDfnxodDoxHZbtOe2ehL/story.html?p1=Article_Facet_Related_Article";><i>Health law coverage can be tough sell in some states</i></a>.</p>
+		<p>Gavin, the creator of Mr. Map Generator, has also posted a tutorial on how to use your own SVG on his <a href="http://patrickgarvin.com/blog/?p=1806";>blog</a>.</p>
+		<p>To use Mr. Map Generator, you first have to visit <a href="http://patrickgarvin.com/maps/USmap.htm";>Mr. Map Generator</a>. The site walks you through step-by-step on how to create a choropleth map using your own data.</p>
+			<ol>
+				<li><b>Step 1: Format Data</b></li>
+					<p>For this step, Mr. Map Generator asks you to format your data in columns in order first by state postal codes, state names, and then any other data in the following columns. To make this step easier, Mr. Map Generator allows you the option to download a zip for responsive files or an Excel template for a print map.</p>
+				<li><b>Step 2: Paste the Data</b></li>
+					<p>Once your data is formated in Excel or Google Spreadsheets, you then copy and paste it back into Mr. Map Generator's site</p>
+				<li><b>Step 3: Select Data Set</b></li>
+					<p>Click this button to move on to the next step.</p>
+				<li><b>Step 4: Choose the Column Wanted</b></li>
+					<p>Now you choose what column in your data set you would like the map to focus on - there should be column options.<p>
+				<li><b>Step 5: Select the Shading Color</b></li>
+					<p>Choose from red, green, blue, yellow or purple for the color of the map.</p>
+				<li><b>Step 6: Select Number of Shades Wanted</b></li>
+					<p>The amount of shades goes up to 5.</p>
+				<li><b>Step 7: View Map</b></li>
+					<p>After submitting your input and information for the map, you are able to view the outcome.</p>
+			</ol>
+		<p>To wrap up this example, it can clearly be used to create choropleth maps by simply inputing data to transform data driven stories into data driven, <i>visual</i> stories.</p>
+		
+		<p>Walk the reader through an example - show how to do something basic with the tool (include coding samples)</p>
+		<h3>Project Walk Through</h3>
+		<p>While using python and Beautiful Soup to create my project (a choropleth map of total employment for graphic designers in the United States) I had to have a few things to start off:</p>
+			<ol>
+				<li><b>Data</b></li>
+					<p>Obviously, to create a data map I needed data. I searched the Bureau of Labor Statistics and found data for all 50 states from May of 2014 <a href="http://www.bls.gov/oes/current/oessrcst.htm";>here</a>. I then took that data and found the information I needed, which was the state abbreviations, the state names and total employment for graphic designers in all the states. Once I gathered that information, I made a separate csv (comma separated values) file so I could run it in my python code.<p>
+				<li><b>Text Editor</b></li>
+					<p>If I wanted to run any kind of program I needed a text editor. I have TextWrangler, which I had already downloaded from the app store for previous projects.</p>
+				<li><b>Code</b></li>
+					<p>Once I had my data the way I needed it and I had my text editor ready to go, I then found an <a href="http://flowingdata.com/2009/11/12/how-to-make-a-us-county-thematic-map-using-free-tools/";>example</a> of how to create a choropleth map with Python and Beautiful Soup. I followed the instructions, although the example map used county data and SVG file, instead of states data and SVG file.</p>
+						<img src="Images/Code_Ex.png"; style="width:450px; height:500px";>
+						<ul>
+							<li><h4>Code Breakdown</h4></li>
+							<li><img src="Images/Code_Ex2.png"; style="width:450px; height:60px";>
+							<p>In line 6, the code is creating 'map_output.svg' and 'w' is writing the extracted data into it in order to shade the states.</p></li>
+							<li><img src="Images/Code_Ex3.png"; style="width:450px; height:100px";>
+							<p>In line 10, the code is opening 'dataartdirector.csv' and reading the data. Line 13 is reading a specific row [3] and seeing that anything else that isn't row three it doesn't need. Line 14 is is taking the information it read in row 3 and seeing that the employment[row[0]] is equal to rate, which allows the computer to use later to write in the data when it comes to shading the states. If anything in the files don't match what the code is looking for, it passes it and goes on.</p></li>
+							<li><img src="Images/Code_Ex4.png"; style="width:450px; height:60px";>
+							<p>In line 19, the code is opening the SVG file 'Blank_US_Map1.svg' and reading the code information from it in order to apply the previous data to this SVG file.</p></li>
+							<li><img src="Images/Code_Ex5.png"; style="width:450px; height:60px";>
+							<p>In line 22, the code is loading the data from the SVG file and the XML file into Beautiful Soup so the data can be combined into a new SVG file.</p></li>
+							<li><img src="Images/Code_Ex6.png"; style="width:450px; height:60px";>
+							<p>In line 25, the code is telling Beautiful Soup to findAll the paths (state outlines) in the files. </p></li>
+							<li><img src="Images/Code_Ex7.png"; style="width:450px; height:60px";>
+							<p>In line 27, the code reads that the colors that will be used in the map for shading are equal to the hex colors inside the [brackets] </p></li>
+							<li><img src="Images/Code_Ex8.png"; style="width:450px; height:60px";>
+							<p>In line 31, the code reads that the path_style, or the style of the state outlines are being set.</p></li>
+							<li><img src="Images/Code_Ex9.png"; style="width:450px; height:150px";>
+							<p>In line 46, the code is giving an if/else (elif) statement that tells the computer to look at the rate number in the data and comparing it to see if it is greater than 800. If it is then the color_class is 4; if it isn't then it moves on to the elif comparing the number from the data to see if it is greater than 600. Again, if it is then the color_class = 3; if it isn't it moves on to the next until it matches the number to a color_class. </p></li>
+							<li><img src="Images/Code_Ex10.png"; style="width:450px; height:60px";>
+							<p>In line 57, the code reads that the color is equal to colors[color_class], which makes the computer go back and match the data that was compared and matched in the if/else statement to the hex colors in line 27. </p></li>
+							<li><img src="Images/Code_Ex11.png"; style="width:450px; height:80px";>
+							<p>In line 63, the code is telling Beautiful Soup to output the new map that is filled in with the data and shading.</p></li>
+						</ul>
+				<li><b>Blank SVG file of the U.S.</b></li>
+					<p>This is where it got a little tricky: I had to find a different <b>SVG</b> (Scalable Vector Graphics) file, which is basically the vector version of a jpeg only it allows the opportunity for interactivity and animation. By using a different file I had to manually go in and change layer names of each state and turn each state outline into a "compound path," which allows me to identify what path I am working with when editing the code in Python and makes a state line one connected path instead of several disconnected paths. By making outline paths of each state, it allows the code to run and shade the states by the data that goes with each of them.</p>
+						<img src="Images/Illustrator_Ex.png"; style="width:750px; height:450px";>
+						<ul>
+							<li><img src="Images/Layer.png"; style="width:450px; height:200px";>
+							<p>For each of the paths (or states) I had to go in an rename them to match their postal abbreviation code. So in the photo you see that the California path is now named as CA.</p></li>
+						</ul>
+				<li><b>Terminal</b></li>
+					<p>In order to test the code and make sure everything ran smoothly, I had to use the terminal on my mac (which I mentioned before). I had to change the directory to the folder I saved everything in and then I had to tell the terminal that I wanted it to run my python file, which is named color_map.py. So this is what I typed: cd ~/Desktop/foldername (hit enter) python color_map.py (hit enter again) and VIOLA! It ran and showed any errors that i need to fix. 
+			</ol>
+			
+		<p>Once I figured out what all I needed to use and how to run my code, I was ready to make sure my map actually showed up and worked, which is when I use the terminal, check to make sure the new SVG file shows up in my folder, and pull the file into Illustrator.</p>
+		
+		<h3>Limitations of the tool</h3>
+		<p>A major limitation I ran into with Python was the the indentation of the code. If an indented line was off Python refuses to run that portion of the code and gives an error message in the terminal (where you run the code) identifying what is wrong.</p>
+		<p>Another limitation I had trouble with did not deal with Python or Beautiful Soup, but Adobe Illustrator. Whenever I tried to save an SVG file after editing it by making states compound paths, Illustrator would quit without saving any of my work. This disrupted my work for my project, but I was able to get around it by searching for different vector files of the U.S., which I was able to save and piece together by copying and pasting once I found files that included compound paths of the states.</p>
+
+	<object type="image/svg+xml" data="map_output.svg" style="width:800px; height:500px";>
+		<img src="Images/map_output.png" alt="Graphic Designers Total Employment in the U.S."/>
+    </object>
+# include the data visualization you created using this tool - host this on your iweb account 
+	</div>
+	</body>
+</html>
