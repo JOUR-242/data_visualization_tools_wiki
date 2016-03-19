@@ -1,0 +1,21 @@
+body {
+	padding-left: 30px;
+	font-family: Trebuchet, sans-serif;
+	font-size: 13px;
+	color: #2F2F2F;
+}
+
+body ul {
+	padding-left: 35px;
+}
+
+body li {
+	position: relative;
+	margin-bottom: 5px;
+}
+
+#wrapper 
+img{
+	width:100%;
+	height:200px;
+}

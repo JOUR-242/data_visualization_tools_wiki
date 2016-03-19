@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<title>Tyson's Wiki Tool</title>
+<link href="styles.css" rel="stylesheet" type="text/css"
+<body>
+<h1>Creating a treemap with portfolio and R</h1>
+<img src="final-instagram.png" alt="final-product" style="width:500px; height:550px">
+<h2>Description</h2>
+<p>Portfolio allows the user to easily create treemaps using the R environment.
+This visualization requires that a dataset have four attributes: a (numeric) ID, an area, a grouping and a density.</p>
+<table>
+	<tr>
+		<td><strong>ADVANTAGES OF PORTFOLIO</strong></td><td><strong>DISADVANTAGES OF PORTFOLIO</strong></td>
+	</tr>
+	<tr>
+		<td><ul>
+		<li>Shows a large amount of information that is not easily understandable from a chart</li>
+		<li>Very fast to produce</li>
+		<li>Able to switch variables quickly</li>
+		<li>Efficient display of large amounts of data (Cheshire, spatial.ly)</li>
+		</ul></td>
+		<td><ul>
+		<li>Extremely picky data input</li>
+		<li>Limits on manipulation in R (Illustrator required for more advanced presentation changes)</li>
+		<li>Non-interactive/hover capable</li>
+		<li>No quick method of color manipulation (Cheshire, spatial.ly)</li>
+		</ul>
+		</td>
+	</tr>
+</table>
+<h2>Examples of Journalistic Use</h2>
+<p><strong>
+<a href="http://www.nytimes.com/interactive/2009/09/12/business/financial-markets-graphic.html?src=tptw&_r=0">New York Times: How the Giants of Finance Shrank, Then Grew, Under the Financial Crisis</a></strong></p>
+<p>
+This use of a treemap from the New York Times pairs outputs from Portfolio with a timeline that allows the user to scroll and see how the 'Giants of Finance' shrank and grew during the financial crisis.
+This was an effective use of a treemap because it is able to show percentage change of market share (color) while still displaying the total size and value of the companies (area).
+To create this visualization, the journalist would have had to categorize market data into percentage change and market share and then create a portfolio map with these values as the arguments.
+</p>
+<p><strong>
+<a href="http://www.nytimes.com/interactive/2009/09/12/business/financial-markets-graphic.html?src=tptw&_r=0">Truck Sales Slip, Slipping Up Chrysler</a></strong></p>
+<p>
+Also from the New York Times, this collection of treemaps compares sales of vehicles by major auto companies by type of vehicle and change in sales.
+A treemap is perfect to show this data because the area of each rectangle represents the number of cars sold in 2006 and the color of the rectangle represents change in sales from ‘05-’06. By keeping the scale and color ramp consistent, all automakers can be compared at once.
+The journalist in this case had to organize the data by number of vehicles sold and  change in sales. They also had to assign categories based on type of vehicle.
+</p>
+<h2>Walkthrough</h2>
+<h4>Creating a treemap in Portfolio requires two major steps: formatting the data and manipulating the visualization.</h4>
+<p>Unlike Google Charts treemaps, Portfolio requires a unique ID to accompany each value. This is likely because the tool was developed to analyze stock portfolios, so it expects very particular data.
+The most straightforward format to use in organizing the data is <strong> ID | Area | Category | Color </strong>, though Portfolio can be told to use any column as any argument in creating the visualization.</p>
+<div id="wrapper">
+	<img src="table.png" alt="table-data"/>
+</div>
+<h4>Creating the Visualization</h4>
+<ol>
+<li>Export the data as a .csv</li>
+<li>Download R and open it (looks like a command-line interface)</li>
+<li>Import the data into R, either from the web or from a local source: <strong>data <- read.csv("http://tabird.iweb.bsu.edu/instagram.csv")</strong></li>
+<li>Download and install the Portfolio package in R: <strong>install.packages("portfolio")
+library(portfolio)</strong></li>
+<li>Call on the arguments for the treemap-making function to use: <strong>map.market(id=data$id, area=data$comments, group=data$category, color=data$likes, main='Instagram')</strong></li>
+<li>Once the initial visualization is created, manipulate the code to change colors and scale (color.ramp.pos and color.ramp.neg): <strong>map.market</strong> Save the manipulated code then call on your adjustment by typing: <strong>source("~Path-to-Edits.R")</strong>. Rerun the program, this time changing "map.market" to your own manipulation of the code <strong>new.code(id=data$id, area=data$comments, group=data$category, color=data$likes, main='Instagram')</strong></li>
+</ol>
+<h2>Resources</h2>
+<p>James Cheshire of spatial.ly has improved on the Portfolio package to make color manipulation much easier and with far more options than R's defaults.</p>
+<p>
+<ol>
+	<li>Load the CSV data into R as explained earlier.</li>
+	<li>Install both Portfolio and RColorBrewer:<br>
+	<strong>
+		install.packages("RColorBrewer") <br>
+		install.packages("portfolio") <br>
+		library(RColorBrewer) <br>
+		library(portfolio) <br>
+	</strong>
+	</li>
+	<li><a href="https://dl.dropbox.com/u/10640416/treemapbrewer.r">Download Cheshire's new code</a> and use it as an R source: <strong>source("~Path-to-treemapbrewer.R")</strong></li>
+	<li>Rerun the command with the proper arguments, this time using treemap instead of map.market. Also, now add a pal="~BrewerColors" and "textcol=~Text color" to manipulate the output: <strong>treemap(id=data$id, area=data$comments, group=data$category, color=data$likes, main="", pal="Blues", textcol="white")</strong></li>
+	<li>Save the visualization as  PDF and make final manipulations in Illustrator, which will allow you to adjust fonts, text size and add chatter.</li>
+</ol>
+</p>
+<p>When the ColorBrewer method (rather than standard Portfolio) is used, the following color palettes are available: <br>
+<img src="Brewercolors.png" style="width:400px; height:500px">
+</p>
+</html>
