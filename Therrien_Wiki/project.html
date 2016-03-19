@@ -1,0 +1,60 @@
+<!Doctype HTML>
+<html>
+    <head>
+        <title> </title>
+   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+   <script type="text/javascript" src="https://code.highcharts.com/highcharts.js"></script>
+   <script type="text/javascript" src="https://code.highcharts.com/modules/data.js"></script>
+   <script type="text/javascript" src="https://code.highcharts.com/modules/drilldown.js"></script> 
+    </head>
+    
+    <body>
+	
+	<div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+	<script type="text/javascript" src="chart.js"> </script>
+	<h1> Highcharts </h1>
+	<p> Highcharts is a library of code which can be used to make interactive charts. </p>
+	<a href= "http://www.highcharts.com/demo/"> Library of code - Highcharts.com </a>
+	<p> I picked a column charts with the drill down option      </p>
+	<a href="http://www.highcharts.com/demo/column-drilldown"> The chart I used </a> 
+	<p> Highcharts gives the user a jsfiddle button underneath the demo of their charts. This gives the user the code in jsfiddle and makes it really easy to mess around and learn how the code is working in the program. </p>
+	
+	<h2> Walkthrough and code </h2>
+	<p> 1.) Add in all the links necessary to run Highcharts codes (all are provided by Highscharts but jquery).</p>
+	<img src="html.jpg"/>
+	<p> 2.) Links the js file to the html document </p>
+	<img src= "jsfile.jpg"/>
+	<p> 3.) Creates the space that will hold the chart in the html document. </p>
+	<img src= "Line1.jpg"/>
+	<p> 4.) This line of code is in the javascript document. It grabs the container from the html document and says that in that container we want a chart and the type of chart we are making is a column chart. Chart type can be changed to any kind of chart that Highcharts provides. </p>
+	<img src= "Line2.jpg"/>
+    <p> 5.) Creates all the labels and titles.</p>
+    <img src="RealLine3.jpg"/>
+    <p> 6.) Makes it so that a lengend doesn't appear, makes sure the columns start at the x-axis, and labels the top of the columns with the number. </p>
+    <img src="Line3.jpg"/>
+    <p> 7.) This creates the hover which shows series name(cause of death) at the top using 11 px font. Below that it shows the name on the x-axis (found in the code later in the data section) makes it so it shows up the same color as the column then add the amount next to it.  </p>
+    <img src="tooltip.jpg"/>
+    <p> 8.)Makes the colors different for each column, creates the series name, plots the set of columns and tells it that when the user clicks on that column it will use the drill down function to transfer to another chart with different data  (connected later in code)  </p>
+    <img src="First.jpg"/>
+	<p> 9.)Lastly, create all the data that will be shown when using the drilldown effect.  </p>
+	<img src="Second.jpg"/>
+	
+	<h2> Limitations </h2>
+	<p> I was not able to figure out how to remove the y-axis titles after the drilldown sequence.</p>
+	<p> The a major limitation is that I could not get the title to change to the y-axis name of the column the user clicks on to get more information. This makes the title of the other charts somewhat misleading since they are more narrow than the orignial chart that comes up first. 
+	
+	<h2> Similar interactive infographics </h2>
+	
+	<a href= "http://www.washingtonpost.com/wp-srv/special/sports/2014-olympics/history/"> Washington Post </a>
+	<p> This infographic uses bar charts to breaks down the Winter Olympics into the competing categories for each year then shows the number of men and women that participated. It is similar to my infographic because users can click on a bar chart and it will break down the information even further. For example if the user clicks on the figure skating bar chart then new charts are created, which shows the different competitions within figure skating.	<p>
+	<a href= "http://www.chicagotribune.com/news/ct-chicago-cops-mood-frustration-met-20160225-story.html?utm_content=buffera389a&utm_medium=social&utm_source=twitter.com&utm_campaign=buffer"> Chicago Tribune   </a>
+	<p> The Chicago Tribune did a graphic with 3 separate bar charts which show the number of arrest, contact cards, and AVNO's in Chicago from 2011 to 2016. The user gets to each chart by clicking arrows to go to the pervious or next bar chart I think this graphic could have benefited from my charts because it transitions smoother than the Tribunes. The Tribune used dark blue to make this years numbers standout for each category. Maybe they could have shown each category with 2016 data then allow the user to click on each one and show the change over time since 2011 for each one. <p>
+	<h2> Other Resources </h2>
+	<a href="https://www.youtube.com/playlist?list=PLTgRMOcmRb3Nya4u6drPdn95ZKY_P9g4x"> Videos </a>
+	<p></p>
+	<a href= "https://www.youtube.com/watch?v=NKgH19LQ5SQ"> Tutorial- Part1 </a>
+	<p></p>
+	<a href="https://www.youtube.com/watch?v=G7YZ4ZTd4Us"> Tutorial - Part2 </a>
+    </body>
+
+</html>
